@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>First SpringWeb Application Greeting to Users</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1 th:text="${customer.firstName} + ' ' + ${customer.lastName}"></h1>
+<h2>
+    INDIRIZZO
+</h2>   <ul>
+        <tr th:each="address : ${addresses}">
+           <li> <span th:text="${address.city} + ' ' + ${address.streetAddress}"></span></li>
+
+    </ul>
+
+<h2>
+    PRODOTTI ACQUISTATI
+</h2>    <ul>
+        <tr th:each="product : ${products}">
+            <li> <span th:text="${product.productName} + ' ' + ${product.productDesc} + ' ' + ${product.price} + '$'" ></span></li>
+
+    </ul>
+
+<p><a href="/customers/index">Back to List</a></p>
+</body>
+</html>

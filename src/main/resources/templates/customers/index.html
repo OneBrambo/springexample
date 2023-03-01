@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xml:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>LISTA CUSTOMER</title>
+</head>
+<body>
+<style>
+table { border: 1px solid #ccc; }
+td { border: 1px solid #ddd; padding: 5px; } th{ font-weight: bold; padding: 5px; } </style>
+<h1>Customers List</h1>
+<a href="/customers">ALL</a>
+
+<a href="/customers/active">ACTIVE</a>
+
+<table>
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Firstname</td>
+        <td>Lastname</td>
+        <td>c/c</td>
+        <td>&nbsp;</td>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <tr th:each="customer : ${customers}">
+        <td style="text-align:right" th:text="${customer.id}"></td>
+        <td th:text="${customer.firstName}"></td>
+        <td th:text="${customer.lastName}"></td>
+        <td th:text="${customer.cc}"></td>
+        <td><a th:href="@{'/customers/' + ${customer.id}}">View</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
